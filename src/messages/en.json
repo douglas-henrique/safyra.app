@@ -30,5 +30,10 @@
       "TITLE": "We are coming soon 🚀",
       "DESCRIPTION": "Keep in touch, follow us in"
     }
+  },
+  "DASHBOARD": {
+    "BREADCRUMBS": {
+      "dashboard": "Dashboard"
+    }
   }
 }

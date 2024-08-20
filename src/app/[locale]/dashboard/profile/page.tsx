@@ -15,7 +15,6 @@ const ProfilePage = async () => {
 
       <div>
         {session?.user?.name ? <h2>Hello {session.user.name}!</h2> : null}
-
         {session?.user?.image && (
           <Image
             src={session.user.image}
