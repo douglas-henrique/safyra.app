@@ -1,12 +1,28 @@
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { Input } from "@/components/ui/input";
 import { AvatarDropdown } from "../landing-page/avatar-dropdown";
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
-import { HomeIcon, LineChartIcon, Package2Icon, PackageIcon, PanelLeftIcon, SearchIcon, ShoppingCartIcon, UsersIcon } from "lucide-react";
+import {
+  HomeIcon,
+  LineChartIcon,
+  Package2Icon,
+  PackageIcon,
+  PanelLeftIcon,
+  SearchIcon,
+  ShoppingCartIcon,
+  UsersIcon,
+} from "lucide-react";
 import Breadcrumbs from "./breadcrumbs";
 export default async function Header() {
   const session = await getServerSession(options);
@@ -38,7 +54,11 @@ export default async function Header() {
               <HomeIcon className="h-5 w-5" />
               Dashboard
             </Link>
-            <Link href="#" className="flex items-center gap-4 px-2.5 text-foreground" prefetch={false}>
+            <Link
+              href="#"
+              className="flex items-center gap-4 px-2.5 text-foreground"
+              prefetch={false}
+            >
               <ShoppingCartIcon className="h-5 w-5" />
               Orders
             </Link>
@@ -78,7 +98,13 @@ export default async function Header() {
           className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
         />
       </div>
-      <AvatarDropdown name={session?.user?.name || ''} email={session?.user?.email || ''} image={session?.user?.image || ''} />
+      {session?.user?.name && (
+        <AvatarDropdown
+          name={session?.user?.name || ""}
+          email={session?.user?.email || ""}
+          image={session?.user?.image || ""}
+        />
+      )}
     </header>
-  )
+  );
 }

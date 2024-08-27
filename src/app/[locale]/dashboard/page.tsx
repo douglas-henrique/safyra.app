@@ -9,8 +9,9 @@ import Aside from "@/components/dashboard/aside"
 import Header from "@/components/dashboard/header"
 import { getServerSession } from "next-auth"
 import { options } from "@/app/api/auth/[...nextauth]/options"
-import { prisma } from "@/lib/database"
+import prisma from "@/lib/database"
 import axios, { AxiosError } from 'axios'
+import WelcomeModal from "@/components/dashboard/welcome-modal/welcome-modal"
 
 async function getDashboardData(email: string) {
   const user = await prisma.user.findFirst({
@@ -147,6 +148,11 @@ export default async function Dashboard() {
                 </Card>
               </TabsContent>
             </Tabs>
+            {
+              !dashboardData?.isOnboardingDone && (
+                <WelcomeModal />
+              )
+            }
           </div>
         </main>
       </div>
