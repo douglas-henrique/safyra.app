@@ -4,6 +4,7 @@ export const welcomeFormAtom = atom(
     {
         step: 1,
         companyName: '',
-        companySize: '0-10'
+        companySize: '0-10',
+        error: ''
     }
 )

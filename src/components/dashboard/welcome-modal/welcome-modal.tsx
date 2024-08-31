@@ -25,8 +25,14 @@ export default function WelcomeModal() {
                     </DialogTrigger>
                 </ContextMenuContent>
             </ContextMenu>
+            <DialogTitle>
+                teste
+            </DialogTitle>
+            <DialogDescription>
+                sauohsauohsauoh
+            </DialogDescription>
             <DialogContent onEscapeKeyDown={(e) => e.preventDefault()}
-                onPointerDown={(e) => e.preventDefault()}
+                // onPointerDown={(e) => e.preventDefault()}
                 onInteractOutside={(e) => e.preventDefault()} className="flex flex-col justify-center items-center">
                 <WelcomeModalForm closeModal={() => setIsOpen(false)}/>
             </DialogContent>
